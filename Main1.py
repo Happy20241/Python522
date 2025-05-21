@@ -1,3 +1,4 @@
+
 # name = "admin"
 # print("Hello", name)
 # age = 20.2
@@ -8,6 +9,8 @@
 #
 # print(id(name))
 # print(id(age))
+# from os import write
+
 
 # a = b = c = 10
 # a, b, c = 5, "Hello", 7.2
@@ -1111,34 +1114,34 @@
 # print(m[2][1][1])
 # print(m[2][3][0][3])
 
-# import math
+# import geometry
 #
-# print(math.sqrt(4))
-# print(math.ceil(3.2))
-# print(math.floor(3.8))
+# print(geometry.sqrt(4))
+# print(geometry.ceil(3.2))
+# print(geometry.floor(3.8))
 
 
-# import math as m
+# import geometry as m
 #
 # print(m.sqrt(4))
 # print(m.ceil(3.2))
 # print(m.floor(3.8))
 
-# from math import *
+# from geometry import *
 #
 # print(sqrt(4))
 # print(ceil(3.2))
 # print(floor(3.8))
 
-# from math import sqrt, ceil, floor
+# from geometry import sqrt, ceil, floor
 #
 # print(sqrt(4))
 # print(ceil(3.2))
 # print(floor(3.8))
-# import math
-# print(dir(math))
+# import geometry
+# print(dir(geometry))
 
-# from math import pi
+# from geometry import pi
 #
 # # print(pi)
 # radius = int(input("Введите радиус окружности: "))
@@ -1163,8 +1166,8 @@
 # res = time.time() - start
 # print("Программа выполнилась за", res, "сек.")
 
-# import math
-# from math import sqrt, pi
+# import geometry
+# from geometry import sqrt, pi
 #
 # s = None
 # shape = int(input("Выбор фигуры:\n1-треугольник\n2-прямоугольник\n3-круг\n: "))
@@ -2877,7 +2880,7 @@
 # print(min.__doc__)
 # print(len.__doc__)
 
-# from math import pi
+# from geometry import pi
 
 
 # def cylinder(r, h):
@@ -3507,7 +3510,8 @@
 #
 # print(longest_world(file_name))
 
-# text = "Строка №1\nСтрока №2\nСтрока №3\nСтрока №4\nСтрока №5\nСтрока №6\nСтрока №7\nСтрока №8\nСтрока №9\nСтрока №10\n"
+# text = "Строка №1\nСтрока №2\nСтрока №3\nСтрока №4\nСтрока №5\nСтрока №6\nСтрока №7\n
+# Строка №8\nСтрока №9\nСтрока №10\n"
 # with open("one.txt", "w") as f:
 #     f.write(text)
 #
@@ -3562,113 +3566,149 @@
 # print(os.path.exists(r"E:\Python522\nested1\nested2\nested3\text3.txt"))
 # print(os.path.isfile(r"E:\Python522\nested1\nested2\nested3\text3.txt"))
 # print(os.path.isdir(r"E:\Python522\nested1\nested2\nested3"))
-#
-#
-# with open("text.txt", "w+") as f:
-#     print(f.read())
 
-# file = "text2.txt"
-# f = open(file, "w")
-# f.write("Замена строки в текстовом файле;\n"
-#         "изменить строку в списке;\n"
-#         "записать список в файл;\n")
-# f.close()
+
+# with open("text1.txt", "w+") as f:
+#     print(f.write("Hello"))
+#     f.seek(0)
+#     data = f.read()  # "Hello"
+#     data += "!"  # "Hello!"
+#     f.seek(0)
+#     f.write(data)
+
+# import os
 #
+# file = "text3.txt"
+# # f = open(file, "w")
+# # f.write("Замена строки в текстовом файле;\n"
+# #         "изменить строку в списке;\n"
+# #         "записать список в файл;\n")
+# # f.close()
 #
-# f = open(file, "r")
-# read_line = f.readline()
-# f.close()
-# pos1 = int(input("pos1 = "))
-# pos2 = int(input("pos2 = "))
+# if os.path.exists(file):
+#     f = open(file, "r")
+#     read_line = f.readlines()
+#     f.close()
 #
-# if 0 <= pos1 < len(read_line) and 0 <= pos2 < len(read_line):
-#     read_line[pos1], read_line[pos2] = read_line[pos2], read_line[pos1]
+#     pos1 = int(input("pos1 = ")) - 1  # 1
+#     pos2 = int(input("pos2 = ")) - 1  # 3
+#
+#     # if 0 <= pos1 < len(read_line) and 0 <= pos2 < len(read_line):
+#     # if 0 < pos1 <= len(read_line) and 0 < pos2 <= len(read_line):
+#     if 0 <= pos1 < len(read_line) and 0 <= pos2 < len(read_line):
+#         read_line[pos1], read_line[pos2] = read_line[pos2], read_line[pos1]
+#     else:
+#         print("Такой строки нет")
+#     print(read_line)
+#
+#     f = open(file, "w")
+#     f.writelines(read_line)
+#     f.close()
+#
 # else:
-#     print("Такой строки нет")
-# print(read_line)
-#
-# f = open(file, "w")
-# f.writelines(read_line)
-# f.close()
+#     print("Такого файла нет")
+# s = "Hello\"World"
+# print(len(s))
 
-# import math
-# def area_rectangle(width, height):
-#     return width * height
-# def area_triangle(base, height):
-#     return 0.5 * base * height
-# def area_circle(radius):
-#     return math.pi * (radius ** 2)
-# width = 10
-# height = 16
-# rectangle_area = area_rectangle(width, height)
-# print(f"Площадь прямоугольника: {rectangle_area}")
-# base = 10
-# triangle_area = area_triangle(base, height)
-# print(f"Площадь треугольника: {triangle_area}")
-# radius = 5
-# circle_area = area_circle(radius)
-# print(f"Площадь круга с радиусом {radius}: {circle_area:.2f}")
+# print("Данные в локальном репозитории")
+
+# print("Код, созданный на новом устройстве")
+
+# import os
+#
+# dirs = [r'Work\F1', r'Work\F2\F21']
+
+# for d in dirs:
+#     os.makedirs(d)
+#
+# files = {
+#     'Work': ['w.txt'],
+#     r'Work\F1': ['f11.txt', 'f12.txt', 'f13.txt'],
+#     r'Work\F2\F21': ['f211.txt', 'f212.txt']
+# }
+
+# for key, value in files.items():
+#     for file in value:
+#         file_path = os.path.join(key, file)
+#         open(file_path, 'w').close()
+#
+#
+# file_with_text = [r'Work\w.txt', r'Work\F1\f12.txt', r'Work\F2\F21\f211.txt',
+#                   r'Work\F2\F21\f212.txt']
+#
+# # for file in file_with_text:
+# #     with open(file, 'w') as f:
+# #         f.write(f"Некоторый текст для файла {file}")
+#
+# # Work\w.txt
+# # Work\F1\f11.txt
+# # Work\F1\f12.txt
+# # Work\F1\f13.txt
+# # Work\F2\F21\f211.txt
+# # Work\F2\F21\f212.txt
+# #
+# def print_tree(topdown):
+#     print(f"Обход Work {'сверху вниз' if topdown else 'снизу вверх'}")
+#     for root, directory, FILE in os.walk("Work", topdown):
+#         print(root)
+#         print(directory)
+#         print(file)
+#     print("-" * 50)
+#
+#
+# print_tree(False)
+# print_tree(True)
+
+# import os
+# import time
+#
+# path = "Main1.py"
+# print(os.path.getsize(path))    # размер файла
+# print(os.path.getatime(path))   # последний доступ к файлу в секундах
+# print(os.path.getmtime(path))   # время последнего изменения файла
+# print(os.path.getctime(path))   # время создания файла
+#
+# size = os.path.getsize(path)
+# a_time = os.path.getatime(path)
+# m_time = os.path.getatime(path)
+# c_time = os.path.getatime(path)
+#
+# time.strftime("%d.%m.%y, %H:%M:%S", time.localtime(a_time))
+#
+# print(time.strftime("%d.%m.%y, %H:%M:%S", time.localtime(a_time)))
+# print(time.strftime("%d.%m.%y, %H:%M:%S", time.localtime(m_time)))
+# print(time.strftime("%d.%m.%y, %H:%M:%S", time.localtime(c_time)))
+#
+# print(size)
+# print(size // 1024)
+
+# import os
+#
+# file_path = r"Z:\Python\dz..now\text2.txt"
+#
+# if os.path.exists(file_path):
+#     directory, file = os.path.split(file_path)
+#     atime = os.path.getatime(file_path)
+#     print(f"file ({directory}) - {atime}")
+# else:
+#     print(f"Файл {file_path} не существует")
+
+# import os
+# dir_name = "Work"
+#
+# objs = os.listdir(dir_name)
+# print(objs)
+#
+#
+# for obj in objs:
+#     p = os.path.join(dir_name, obj)
+#     print(p)
+#     if os.path.isfile(obj):
+#         print(f"{obj} - file - {os.path.getsize(p)} bytes")
+#     if os.path.isdir(obj):
+#         print(f"{obj} - dir")
 
 
-# total_area = 0
-#
-#
-# def calculate_parallelepiped_area(a, b, c):
-#
-#         def rectangle_area(length, width):
-#                 return length * width
-#
-#
-#
-#         area1 = rectangle_area(a, b) * 2  # 2 грани a x b
-#         area2 = rectangle_area(a, c) * 2  # 2 грани a x c
-#         area3 = rectangle_area(b, c) * 2  # 2 грани b x c
-#
-#
-#         local_area = area1 + area2 + area3
-#
-#
-#         global total_area
-#         total_area += local_area
-#
-#         return local_area
-#
-#
-#
-# test_values = [
-#         (2, 4, 6),
-#         (5, 8, 2),
-#         (1, 6, 8)
-# ]
-#
-#
-# for a, b, c in test_values:
-#         area = calculate_parallelepiped_area(a, b, c)
-#         print(f"Площадь параллелепипеда с ребрами {a}, {b}, {c}: {area}")
-#
-#
-# print(f"Общая площадь всех параллелепипедов: {total_area}")
-#
-# import sqlite3
-#
-#
-# con = sqlite3.connect("profile.db")
-# cur = con.cursor()
-#
-# cur.execute(""""""")
-#
-# con.close()
-#
-# with sqlite3.connect('profile.db') as con:
-#     cur = con.cursor()
-#     cur.execute("""CREATE TABLE IF NOT EXISTS users(
-#     id INTEGER PR PRIMARY KEY AUTOINCREMENT,
-#     name TEXT NOT NULL,
-#     summ REAL,
-#     date BLOB
-#     )""")
 
 
-# print("данные в локальном репозитории")
 
-# print("Код, создан на новом устройсте")
