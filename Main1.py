@@ -3692,7 +3692,7 @@
 #     print(f"file ({directory}) - {atime}")
 # else:
 #     print(f"Файл {file_path} не существует")
-
+#
 # import os
 # dir_name = "Work"
 #
@@ -3708,7 +3708,7 @@
 #     if os.path.isdir(obj):
 #         print(f"{obj} - dir")
 # import os
-#
+
 #
 # def info_files(root, folder):
 #     for root, dirs, files in os.walk(root):
@@ -3724,6 +3724,160 @@
 #
 #
 # info_files("Work", "Work/empty_files")
+
+# ООП
+
+# class Point:
+#     x = 1
+#     y = 2
+
+
+# p1 = Point()
+# # p1.x = 100
+# # print(p1.x)
+# # print(Point.x)
+# # print(id(p1))
+# # print(id(print))
+# p1.x = 100
+# p1.y = 50
+# print(p1.x, p1.y)
+# print(p1.__dict__)
 #
+# p2 = Point()
+# print(p2.x, p2.y)
+# print(p2.__dict__)
+# print(Point.__dict__)
+
+# class Point:
+#     x = 1
+#     y = 2
+#
+#     def set_coord(self):
+#         print(self.__dict__)
+
+#
+# p1 = Point()
+# p1.x = 5
+# p1.y = 10
+# p1.set_coord()
+# Point.set_coord(p1)
+#
+# p2 = Point()
+# p2.set_coord()
+#
+
+
+# class Point:
+#     x = 1
+#     y = 2
+#
+#     def set_coord(self, x1, y1):
+#         self.x = x1
+#         self.y = y1
+#
+#
+# p1 = Point()
+# p1.set_coord(5, 10)
+# point.set_coord(p1, 10, 20)
+# print(p1.__dict__)
+#
+# p2 = Point()
+# p2.set_coord(2, 7)
+# print(p2.__dict__)
+#
+
+
+# class Human:
+#     name = "name"
+#     birthday = "00.00.0000"
+#     phone = "00-00-00"
+#     country = "country"
+#     city = "city"
+#     address = "street, house"
+#
+#     def print_info(self):
+#         print("Персональные данные ". center(40, "x"))
+#         print(f"Имя {self.name}\nДата рождения: {self.birthday}\n"
+#               f"Номер телефона: {self.phone}\nСтрана: {self.country}\n"
+#               f"Город {self.city}\nДомашний адрес: {self.address}")
+#         print("=" * 40)
+#
+#     def input_info(self, first_name, birthday, phone, country, city, address):
+#         self.name = first_name
+#         self.birthday = birthday
+#         self.phone = phone
+#         self.country = country
+#         self.city = city
+#         self.address = address
+#
+#     def set_name(self, name): # устоновили новое имя
+#         self.name = name
+#
+#     def get_name(self): # получили имя
+#         return self.name
+#
+
+# h1 = Human()
+# h1.print_info()
+# h1.input_info("Юля", "23.05.1986", "45-46-98", "Россия", "Москва", "Чистопрудный бульвар, 1А")
+# h1.print_info()
+# h1.set_name("Юлия")
+# h1.print_info()
+# print(h1.get_name())
+
+
+# class Person:
+#     skill = 10
+#
+#     def __init__(self, name, surname):
+#         self.name = name
+#         self.surname = surname
+#
+#     def __del__(self):
+#         print("Удаление экземпляра\n\n")
+#
+#     def print_info(self):
+#         print("Данные сотрудника:", self.name, self.surname)
+#
+#     def add_skill(self, k):
+#         self.skill += k
+#         print("Квалификация сотрудника:", self.skill, "\n")
+#
+#
+# p1 = Person("Виктор", "Резник")
+# p1.print_info()
+# p1.add_skill(3)
+# # del p1
+# p1 = 5
+#
+# p2 = Person("Анна", "Долгих")
+# p2.print_info()
+# p2.add_skill(2)
+
+
+# class Person:
+#     count = 0  # 3
+
+#     def __init__(self, name, surname):
+#        self.name = name
+#        self.surname = surname
+#        Person.count += 1
+
+#    def print_info(self):
+#         print("Данные сотрудника:", self.name, self.surname)
+
+
+# p1 = Person("Виктор", "Резник")
+# p1.print_info()
+# print(p1.count)
+# p2 = Person("Анна", "Долгих")
+# p2.print_info()
+#
+# p3 = Person("Анна", "Долгих")
+# print(p2.count)
+# print(Person.count)
+
+
+
 
 
