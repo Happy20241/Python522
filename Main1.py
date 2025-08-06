@@ -4327,13 +4327,11 @@
 #
 # class UserDate:
 #     def __init__(self, fio, old, ps, weight):
-#         self.verify_fio(fio)
-#         self.verify_old(old)
 #
-#         self.__fio = fio
-#         self.__old = old
-#         self.__password = ps
-#         self.__weight = weight
+#         self.fio = fio
+#         self.old = old
+#         self.password = ps
+#         self.weight = weight
 #
 #     @staticmethod
 #     def verify_fio(fio):
@@ -4353,6 +4351,423 @@
 #         if not isinstance(old, int) or old < 14 or old > 100:
 #             raise TypeError("Возраст должен быть числом в диапазоне от 14 до 100 лет")
 #
+#     @staticmethod
+#     def verify_weight(w):
+#         if not isinstance(w, float) or w < 20:
+#             raise TypeError("Все должен быть вещественным числом от 20 кг и выше")
+#
+#     @staticmethod
+#     def verify_ps(ps):
+#         if not isinstance(ps, str):
+#             raise TypeError("Паспорт должен быть строкой")
+#         s = ps.split()
+#         if len(s) != 2 or len(s[0]) != 4 or len(s[1]) != 6:
+#             raise TypeError("Неверный формат паспорта")
+#         for p in s:
+#             if not p.isdigit():
+#                 raise TypeError("Серия и номер паспорта должны быть числами")
+#
+#     @property
+#     def fio(self):
+#         return self.__fio
+#
+#     @fio.setter
+#     def fio(self, fio):
+#         self.verify_fio(fio)
+#         self.__fio = fio
+#
+#     @property
+#     def old(self):
+#         return self.__old
+#
+#     @old.setter
+#     def old(self, year):
+#         self.verify_old(year)
+#         self.__old = year
+#
+#     @property
+#     def password(self):
+#         return self.__password
+#
+#     @password.setter
+#     def password(self, ps):
+#         self.verify_ps(ps)
+#         self.__password = ps
+#
+#     @property
+#     def weight(self):
+#         return self.__weight
+#
+#     @weight.setter
+#     def weight(self, w):
+#         self.verify_weight(w)
+#         self.__weight = w
+#
 #
 # p1 = UserDate("Волков Игорь Николаевич", 26, "1234 567890", 80.8)
+# p1.fio = "Волков Игорь Викторович"
+# p1.old = 32
+# p1.password = "3216 789845"
+# p1.weight = 70.9
+# print(p1.__dict__)
+
+# class Point:
+#     def __init__(self, x, y):
+#         self.__x = x
+#         self.__y = y
+#
+#     def __str__(self):
+#         return f"({self.__x}, {self.__y})"
+#
+#
+# class Prop:
+#     def __init__(self, sp: Point, ep: Point, color: str = "red", width: int = 1) -> None:
+#         self._sp = sp
+#         self._ep = ep
+#         self._color = color
+#         self._width = width
+#         print("Инициализатор класса Prop")
+#
+#
+# class Line(Prop):
+#
+#     def __init__(self, *args):
+#         print("Переопределённый инициализатор Line")
+#         # Prop.__init__(self, *args)
+#         super().__init__(*args)
+#
+#     def draw_line(self):
+#         print(f"Рисование линии: {self._sp}, {self._ep}, {self._color}, {self._width}")
+#
+#
+# line = Line(Point(1, 2), Point(10, 20))
+# line.draw_line()
+#
+#
+# class Rect(Prop):
+#
+#     def draw_rect(self):
+#         print(f"Рисование линии: {self._sp}, {self._ep}, {self._color}, {self._width}")
+#
+#
+# line = Line(Point(1, 2), Point(10, 20))
+# line.draw_line()
+# rect = Rect(Point(30, 40), Point(70, 80))
+# rect.draw_rect()
+
+
+# class Figure:
+#     def __init__(self, color):
+#         self.__color = color
+#
+#     @property
+#     def color(self):
+#         return self.__color
+#
+#     @color.setter
+#     def color(self, c):
+#         self.__color = c
+#
+#
+# class Rectangle(Figure):
+#     def __init__(self, width, height, c):
+#         super().__init__(c)
+#         self.__width = width
+#         self.__height = height
+#
+#     @property
+#     def width(self):
+#         return self.__width
+#
+#     @width.setter
+#     def width(self, w):
+#         if not isinstance(w, int):
+#             raise TypeError("Ширина должна быть числом")
+#         elif not w > 0:
+#             raise ValueError("Ширина должна быть положительным числом")
+#         else:
+#             self.__width = w
+#
+#     @property
+#     def height(self):
+#         return self.__height
+#
+#     @height.setter
+#     def height(self, h):
+#         if isinstance(h, int) and h > 0:
+#             self.__height = h
+#         else:
+#             raise ValueError("Высота должна быть положительным числом")
+#
+#     def get_area(self):
+#         print(f"Площадь {self.color} прямоугольника: ", end="")
+#         return self.__width * self.__height
+#
+#
+# rect = Rectangle(10, 20, "green")
+# print(rect.width)
+# print(rect.height)
+# print(rect.color)
+# rect.width = 8
+# rect.color = "red"
+# print(rect.get_area())
+
+# class Rect(object):
+#     def __init__(self, width, height):
+#         self.width = width
+#         self.height = height
+#
+#     def show_rect(self):
+#         print(f"Прямоугольник:\nШирина: {self.width}\nВысота: {self.height}")
+#
+#
+# class RectFon(Rect):
+#     def __init__(self, width, height, background):
+#         self.fon = background
+#         super().__init__(width, height)
+#
+#     def show_rect(self):
+#         super().show_rect()
+#         print("Фон:", self.fon)
+#
+#
+# class RectBorder(Rect):
+#     def __init__(self, width, height, r_width, r_type, r_color):
+#         super().__init__(width, height)
+#         self.r_width = r_width
+#         self.r_type = r_type
+#         self.r_color = r_color
+#
+#     def show_rect(self):
+#         super().show_rect()
+#         print(f"Ширина рамки: {self.r_width}\nТип рамки: {self.r_type}\nЦвет рамки: {self.r_color}")
+#
+#
+# print(Rect.__dict__)
+# print(RectFon.__dict__)
+# shape1 = RectFon(400, 200, "yellow")
+# shape1.show_rect()
+# print()
+# shape2 = RectBorder(600, 300,"1px", "solid", "blue")
+# shape2.show_rect()
+
+# from math import sqrt
+#
+#
+# class Pair:
+#     def __init__(self, a, b):
+#         self.a = a
+#         self.b = b
+#
+#     def edit_a(self, a):
+#         self.a = a
+#
+#     def edit_b(self, b):
+#         self.b = b
+#
+#     def sum(self):
+#         return self.a + self.b
+#
+#     def mult(self):
+#         return self.a * self.b
+#
+#
+# class RightTriangle(Pair):
+#     def __init__(self, a, b):
+#         super().__init__(a, b)
+#         self.c = self.hypotenuse()
+#
+#     def hypotenuse(self):
+#         hypot = round(sqrt(self.a ** 2 + self.b ** 2), 2)
+#         print(f"Гипотенуза ABC: {hypot}")
+#         return hypot
+#
+#     def print_info(self):
+#         print(f"Прямоугольный треугольник ABC: ({self.a}, {self.b}, {self.c})")
+#
+#     def square(self):
+#         s = 0.5 * self.mult()
+#         print(f"Площадь ABC: {s}")
+#
+#     def edit_a(self, a):
+#         super().edit_a(a)
+#         self.c = self.hypotenuse()
+#
+#     def edit_b(self, b):
+#         super().edit_b(b)
+#         self.c = self.hypotenuse()
+#
+#
+# tr = RightTriangle(5, 8)
+# tr.print_info()
+# tr.square()
+# print()
+#
+# print(f"Сумма: {tr.sum()}")
+# print(f"Произведение: {tr.mult()}")
+#
+# print()
+#
+# tr.edit_a(10)
+# tr.edit_b(20)
+# print(f"Сумма: {tr.sum()}")
+# print(f"Произведение: {tr.mult()}")
+# tr.square()
+
+
+# class Vector(list):
+#     def __str__(self):
+#         return " ".join(map(str, self))
+#
+#
+# v = Vector([1, 2, 3])
+# print(v)
+# print(type(v))
+
+# Перегрузка методов
+
+
+# class Point:
+#     def __init__(self, x, y):
+#         self.x = x
+#         self.y = y
+#
+#     def set_coord(self, x=None, y=None):
+#         if y is None:
+#             self.x = x
+#         elif x is None:
+#             self.y = y
+#         else:
+#             self.x = x
+#             self.y = y
+#
+#
+# p1 = Point(5, 7)
+# print(p1.__dict__)
+# p1.set_coord(20, 30)
+# print(p1.__dict__)
+# p1.set_coord(50)
+# print(p1.__dict__)
+# p1.set_coord(y=100)
+# print(p1.__dict__)
+
+
+# Абстрактные Методы
+
+# class Point:
+#     def __init__(self, x, y):
+#         self.__x = x
+#         self.__y = y
+#
+#     def __str__(self) -> str:
+#         return f"({self.__x}, {self.__y})"
+#
+#
+# class Prop:
+#     def __init__(self, sp: Point, ep: Point, color: str = "red", width: int = 1) -> None:
+#         self._sp = sp
+#         self._ep = ep
+#         self._color = color
+#         self._width = width
+#
+#     def draw(self):
+#         raise NotImplementedError("В дочернем классе должен быть определён метод draw()")
+#
+#
+# class Line(Prop):
+#
+#     def draw(self):
+#         print(f"Рисование линии: {self._sp}, {self._ep}, {self._color}, {self._width}")
+#
+#
+# class Rect(Prop):
+#
+#     def draw(self):
+#         print(f"Рисование прямоугольника: {self._sp}, {self._ep}, {self._color}, {self._width}")
+#
+#
+# class Ellipse(Prop):
+#
+#     def draw(self):
+#         print(f"Рисование эллипса: {self._sp}, {self._ep}, {self._color}, {self._width}")
+#
+#
+# figs = list()
+# figs.append(Line(Point(0, 0), Point(10, 10)))
+# figs.append(Line(Point(10, 10), Point(20, 20)))
+# figs.append(Rect(Point(50, 50), Point(100, 100)))
+# figs.append(Ellipse(Point(70, 70), Point(90, 90)))
+#
+# for f in figs:
+#     f.draw()
+
+# from abc import ABC, abstractmethod
+#
+#
+# class Chess(ABC):
+#     def draw(self):
+#         print("Нарисовал шахматную доску")
+#
+#     @abstractmethod
+#     def move(self):
+#         print("Метод move() в базовом классе")
+#
+#
+# class Queen(Chess):
+#     def move(self):
+#         super().move()
+#         print("Ферзь перемещается на e2e4")
+#
+#
+# # q = Chess()
+# q = Queen()
+# q.draw()
+# q.move()
+
+# from math import pi
+#
+#
+# class Table:
+#     def __init__(self, width=None, length=None, radius=None):
+#         if radius is None:
+#             if length is None:
+#                 self.width = self.length = width
+#             else:
+#                 self.width = width
+#                 self.length = length
+#         else:
+#             self.radius = radius
+#
+#     def calc_area(self):
+#         raise NotImplementedError("В дочернем классе должен быть определён метод calc_area()")
+#
+#
+# class SqTable(Table):
+#     def calc_area(self):
+#         return self.width * self.length
+#
+#
+# class RoundTable(Table):
+#     def calc_area(self):
+#         return round(pi * self.radius ** 2, 2)
+#
+#
+# t = SqTable(20, 10)
+# print(t.__dict__)
+# print(t.calc_area())
+#
+# t2 = SqTable(20)
+# print(t2.__dict__)
+# print(t2.calc_area())
+#
+# t1 = RoundTable(radius=20)
+# print(t1.__dict__)
+# print(t1.calc_area())
+
+
+
+
+
+
+
 
