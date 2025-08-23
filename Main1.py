@@ -4765,9 +4765,103 @@
 # print(t1.calc_area())
 
 
+# from abc import ABC, abstractmethod
+#
+#
+# class Currency(ABC):
+#     def __init__(self, value):
+#         self.value = value
+#
+#     @abstractmethod
+#     def convert_to_rub(self):
+#         pass
+#
+#     def print_value(self):
+#         # Выводит значение и валюту
+#         print(f"{self.value}", end=" ")
+#
+#     def print_info(self):
+#         # Выводит значение, валюту и сумму в рублях
+#         self.print_value()
+#         print(f"{self.get_currency_suffix()}", end=" ")
+#         print(f"{self.convert_to_rub():.2f} RUB")
+#
+#     @abstractmethod
+#     def get_currency_suffix(self):
+#         pass
+#
+#
+# class Dollar(Currency):
+#     rate_to_rub = 74.16
+#     suffix = "USD"
+#
+#     def convert_to_rub(self):
+#         return self.value * Dollar.rate_to_rub
+#
+#     def get_currency_suffix(self):
+#         return Dollar.suffix
+#
+#
+# class Euro(Currency):
+#     rate_to_rub = 90.14
+#     suffix = "EUR"
+#
+#     def convert_to_rub(self):
+#         return self.value * Euro.rate_to_rub
+#
+#     def get_currency_suffix(self):
+#         return Euro.suffix
+#
+#
+# # Создаем списки валют
+# d = [Dollar(5), Dollar(10), Dollar(50), Dollar(100)]
+# e = [Euro(5), Euro(10), Euro(50), Euro(100)]
+#
+# # Вывод информации по доллару
+# for elem in d:
+#     elem.print_info()
+#
+# # Вывод информации по евро
+# for elem in e:
+#     elem.print_info()
 
 
+# for elem in d:
+#     elem.print_value()
+#     print(f" ={elem.convert_to_rub():.2f} RUB")
+#
+# for elem in e:
+#     elem.print_value()
+#     print(f" ={elem.convert_to_rub():.2f} RUB")
 
 
+# Интерфейс
 
+# from abc import ABC, abstractmethod
+#
+#
+# class Father(ABC):
+#     @abstractmethod
+#     def display1(self):
+#         pass
+#
+#     @abstractmethod
+#     def display2(self):
+#         pass
+#
+#
+# class Child(Father):
+#     def display1(self):
+#         print("Child Class")
+#
+#
+# class GrandChild(Child):
+#     def display2(self):
+#         print("GrandChild Class")
+#
+#
+# gc = GrandChild()
+#
+# gc.display1()
+# gc.display2()
 
